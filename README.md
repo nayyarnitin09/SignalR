@@ -98,3 +98,15 @@ Namespace WorkOrderView
         End Sub
     End Class
 End Namespace
+//Startup file
+
+<Assembly: OwinStartup(GetType(WorkOrderViewUsers.Startup))> 
+Namespace WorkOrderViewUsers
+    Public Class Startup
+        Public Sub Configuration(app As IAppBuilder)
+            ' Any connection or hub wire up and configuration should go here
+            GlobalHost.DependencyResolver.UseRedis(AppSettings.SignalRedisIP, AppSettings.SignalRedisPort, "", "WorkOrderView")
+            app.MapSignalR()
+        End Sub
+    End Class
+End Namespace
