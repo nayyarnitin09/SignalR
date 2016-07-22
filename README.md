@@ -110,3 +110,5 @@ Namespace WorkOrderViewUsers
         End Sub
     End Class
 End Namespace
+
+//We will be calling these methods when user connect or disconnect
